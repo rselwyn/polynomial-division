@@ -27,15 +27,19 @@ public class LinearFactor {
 	public void ParseFactor(String expr, char var){
 		this.varname = var;
 		
-		if (expr.charAt(0) == var){
-			try{
-				setFact(Integer.parseInt(expr.substring(1)));
-			}
-			catch (Exception e){
-				setFact(Integer.parseInt(expr.substring(1).replaceAll("\\s+","")));
-			}
+		if (!cleanUp(expr)){
+			setFact(Integer.parseInt(expr.substring(1)));
 		}
+		else{
+			setFact(Integer.parseInt(expr.substring(indexRet(expr))));
+		}
+	}
 		
+	public int indexRet(String expr){
+		return expr.toLowerCase().indexOf("+".toLowerCase());
+	}
+	public boolean cleanUp(String in){
+		return in.toLowerCase().contains("+".toLowerCase()); 
 	}
 	
 	public void getNewLinearFactor(){
