@@ -9,6 +9,8 @@ public class Calculator {
 		Polynomial poly = new Polynomial();
 		lf.getNewLinearFactor();
 		System.out.println(lf.getFactor());
+		poly.getNewPoly();
+		
 	}
 
 }

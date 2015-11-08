@@ -7,14 +7,7 @@ public class LinearFactor {
 //	}
 	private Scanner scan = new Scanner(System.in);
 	private float factor;
-	private char varname;
-	
-	public void setVar(char var){
-		varname = var;
-	}
-	public char getVar(){
-		return varname;
-	}
+
 	
 	public void setFact(float factor){
 		this.factor = factor;
@@ -24,9 +17,7 @@ public class LinearFactor {
 		return factor;
 	}
 	
-	public void ParseFactor(String expr, char var){
-		this.varname = var;
-		
+	public void ParseFactor(String expr){
 		if (!cleanUp(expr)){
 			setFact(Integer.parseInt(expr.substring(1)));
 		}
@@ -43,10 +34,9 @@ public class LinearFactor {
 	}
 	
 	public void getNewLinearFactor(){
-		System.out.println("What is your variable character?");
-		char which = scan.next().charAt(0);
+
 		System.out.println("Please enter a linear factor in the form of x - c.");
 		String expr = scan.next();
-		ParseFactor(expr, which);
+		ParseFactor(expr);
 	}
 }
