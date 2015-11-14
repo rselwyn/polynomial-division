@@ -2,7 +2,9 @@ import java.util.*;
 
 public class Polynomial {
 	private String polynomial = "";
-	public int degree = 0;
+	//Plaintext poylnomial input
+	private int degree = 0;
+	//Degree of the polynomial
 	private ArrayList <Float> coefficients = new ArrayList<Float>();
 	//Coefficients
 	private Scanner scan = new Scanner(System.in);
@@ -19,8 +21,11 @@ public class Polynomial {
 		this.polynomial = text;
 	}
 	
+	/*
+	 * @return: The polynomial
+	 */
 	public String getPoly(){
-		return polynomial;
+		return this.polynomial;
 	}
 	
 	public void getNewPoly(){
@@ -33,21 +38,17 @@ public class Polynomial {
 	public void parseInput(){
 		
 		String newPoly = replacePlusMinus(getPoly());
-		String[] arr = polynomial.split("\\+",10);
+		String[] arr = newPoly.split("\\+",10);
+		for (String boss : arr) System.out.println(boss);
 		//System.out.println(arr);
 		setdegree(getDegree(arr[0]));
-		for (int i = 0; i < arr.length; i++){
-			if(getDegree(arr[i]) == this.degree - i){
-				coefficients.add(getCoeffFromString(arr[i]));
-			}
-			else{
-				coefficients.add((float) 0);
-			}
-		}
-		for (Float temp : coefficients) {
-			System.out.println(temp);
-		}
+
 	}
+	
+	/*
+	 * @param text: The text to replace '-' with '+-'
+	 * @return The new string
+	 */
 	public String replacePlusMinus(String text){
 		return text.replace("-", "+-");
 	}
