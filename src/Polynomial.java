@@ -4,6 +4,7 @@ public class Polynomial {
 	private String polynomial = "";
 	public int degree = 0;
 	private ArrayList <Float> coefficients = new ArrayList<Float>();
+	//Coefficients
 	private Scanner scan = new Scanner(System.in);
 	
 	public void setdegree(int deg){
@@ -24,14 +25,16 @@ public class Polynomial {
 	
 	public void getNewPoly(){
 		System.out.println("Please enter a new polynomial.  To do an exponent, use ^");
+		//Set the polynomial to the input
 		setPoly(scan.nextLine());
+		//Parse the input
 		parseInput();
 	}
 	public void parseInput(){
 		
-		String newPoly = this.polynomial.replace("-", "+-");
+		String newPoly = replacePlusMinus(getPoly());
 		String[] arr = polynomial.split("\\+",10);
-		System.out.println(arr);
+		//System.out.println(arr);
 		setdegree(getDegree(arr[0]));
 		for (int i = 0; i < arr.length; i++){
 			if(getDegree(arr[i]) == this.degree - i){
@@ -45,14 +48,24 @@ public class Polynomial {
 			System.out.println(temp);
 		}
 	}
+	public String replacePlusMinus(String text){
+		return text.replace("-", "+-");
+	}
 	
+	//Get the degree of the polynomial (from the first term only!)
 	public int getDegree(String input){
+		//Get the character at the last index of the term (The exponent)
 		char asC = input.charAt(input.length()-1);
+		//Return the value
 		return (int) asC;
 	}
 	
+	/*
+	 * @param text: The term to get the leading term of 
+	 * @return The value
+	 */
 	public float getCoeffFromString(String text){
-		return text.charAt(0);
+		return (float) text.charAt(0);
 	}
 	
 }

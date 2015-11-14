@@ -1,18 +1,22 @@
 import java.util.*;
 public class LinearFactor {
 	
-//	public LinearFactor(float fact, char v){
-//		setVar(v);
-//		setFact(fact);
-//	}
 	private Scanner scan = new Scanner(System.in);
+	//Scanner Init
+	
+	//Initialize the coefficient
 	private float factor;
 
-	
+	/*
+	 * @param factor: The factor to set the object's factor to
+	 */
 	public void setFact(float factor){
+		//Set the factor
 		this.factor = factor;
 	}
-	
+	/*
+	 * @return the factor
+	 */
 	public float getFactor(){
 		return factor;
 	}
