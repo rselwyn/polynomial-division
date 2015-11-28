@@ -22,7 +22,7 @@ public class Polynomial {
 	}
 	
 	/*
-	 * @return: The polynomial
+	 * @return: The polynomial3
 	 */
 	public String getPoly(){
 		return this.polynomial;
@@ -40,9 +40,38 @@ public class Polynomial {
 		String newPoly = replacePlusMinus(getPoly());
 		String[] arr = newPoly.split("\\+",10);
 		for (String boss : arr) System.out.println(boss);
-		//System.out.println(arr);
-		setdegree(getDegree(arr[0]));
-
+		for (String degs : arr) System.out.println(getDegreeFromString(degs));
+		
+		setdegree(getDegreeFromString(arr[0]));
+		System.out.println(getDegree());
+		//Set the degree
+		
+		/*
+		 * Here is where the parsing needs to happen.  
+		 */
+		
+		
+//		for (int orderVal = arr.length; orderVal>=0; orderVal--){
+//			//Cycle looking for powers
+//			for (String term : arr){
+//				System.out.println("HERE-"+term);
+//				if(lookForTheTerm(term, orderVal)){
+//					System.out.println("HERE");
+//					coefficients.add(getCoeffFromString(term));
+//					break;
+//				}
+//				
+//			}
+//		}
+		for (Float t: coefficients) System.out.println(t);
+		
+	}
+	
+	public Boolean lookForTheTerm(String term, int lookFor){
+		if (getDegreeFromString(term)==lookFor){
+			return true;
+		}
+		return false;
 	}
 	
 	/*
@@ -54,11 +83,11 @@ public class Polynomial {
 	}
 	
 	//Get the degree of the polynomial (from the first term only!)
-	public int getDegree(String input){
+	public int getDegreeFromString(String input){
 		//Get the character at the last index of the term (The exponent)
-		char asC = input.charAt(input.length()-1);
+		String[] arr = input.split("");
+		return Integer.parseInt(arr[arr.length - 1]);
 		//Return the value
-		return (int) asC;
 	}
 	
 	/*
