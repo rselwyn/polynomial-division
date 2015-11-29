@@ -39,30 +39,40 @@ public class Polynomial {
 		
 		String newPoly = replacePlusMinus(getPoly());
 		String[] arr = newPoly.split("\\+",10);
-		for (String boss : arr) System.out.println(boss);
-		for (String degs : arr) System.out.println(getDegreeFromString(degs));
+		//for (String boss : arr) System.out.println(boss);
+		//for (String degs : arr) System.out.println(getDegreeFromString(degs));
 		
 		setdegree(getDegreeFromString(arr[0]));
-		System.out.println(getDegree());
+		//System.out.println(getDegree());
 		//Set the degree
+		for (int i = this.degree; i>=0; i--){
+			boolean found = false;
+			for (String each : arr){
+				if(lookForTheTerm(each,i)){
+					try{
+					coefficients.add(getCoeffFromString(arr[i]));
+					}
+					catch (Exception e){
+						
+					}
+					found = true;
+					break;
+				}			
+			
+			}
+			if(!found){
+				coefficients.add((float) 0);
+			}
+			
+		}
+		
 		
 		/*
 		 * Here is where the parsing needs to happen.  
 		 */
 		
-		
-//		for (int orderVal = arr.length; orderVal>=0; orderVal--){
-//			//Cycle looking for powers
-//			for (String term : arr){
-//				System.out.println("HERE-"+term);
-//				if(lookForTheTerm(term, orderVal)){
-//					System.out.println("HERE");
-//					coefficients.add(getCoeffFromString(term));
-//					break;
-//				}
-//				
-//			}
-//		}
+		fixList();
+		//Print out the coefficient list
 		for (Float t: coefficients) System.out.println(t);
 		
 	}
@@ -95,7 +105,13 @@ public class Polynomial {
 	 * @return The value
 	 */
 	public float getCoeffFromString(String text){
-		return (float) text.charAt(0);
+		String[] arr = text.split("");
+		return Integer.parseInt(arr[0]);
+	}
+	
+	
+	public void fixList(){
+		Collections.reverse(coefficients);
 	}
 	
 }
