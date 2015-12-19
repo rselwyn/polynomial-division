@@ -5,9 +5,10 @@ public class Polynomial {
 	//Plaintext poylnomial input
 	private int degree = 0;
 	//Degree of the polynomial
-	private ArrayList <Float> coefficients = new ArrayList<Float>();
 	//Coefficients
 	private Scanner scan = new Scanner(System.in);
+	
+	private HashMap<Integer,Float> degreeWithTerm = new HashMap<Integer,Float>();
 	
 	public void setdegree(int deg){
 		this.degree = deg;
@@ -43,37 +44,12 @@ public class Polynomial {
 		//for (String degs : arr) System.out.println(getDegreeFromString(degs));
 		
 		setdegree(getDegreeFromString(arr[0]));
-		//System.out.println(getDegree());
-		//Set the degree
-		for (int i = this.degree; i>=0; i--){
-			boolean found = false;
-			for (String each : arr){
-				if(lookForTheTerm(each,i)){
-					try{
-					coefficients.add(getCoeffFromString(arr[i]));
-					}
-					catch (Exception e){
-						
-					}
-					found = true;
-					break;
-				}			
-			
-			}
-			if(!found){
-				coefficients.add((float) 0);
-			}
-			
-		}
 		
-		
+
 		/*
 		 * Here is where the parsing needs to happen.  
 		 */
-		
-		fixList();
 		//Print out the coefficient list
-		for (Float t: coefficients) System.out.println(t);
 		
 	}
 	
@@ -109,9 +85,5 @@ public class Polynomial {
 		return Integer.parseInt(arr[0]);
 	}
 	
-	
-	public void fixList(){
-		Collections.reverse(coefficients);
-	}
-	
+
 }
