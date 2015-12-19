@@ -44,12 +44,16 @@ public class Polynomial {
 		//for (String degs : arr) System.out.println(getDegreeFromString(degs));
 		
 		setdegree(getDegreeFromString(arr[0]));
+		//Set the degree
 		
+		pumpIntoMap(arr);
+		printMap(this.degreeWithTerm);
+		//Add the data we have into the map
 
 		/*
 		 * Here is where the parsing needs to happen.  
 		 */
-		//Print out the coefficient list
+		
 		
 	}
 	
@@ -85,5 +89,31 @@ public class Polynomial {
 		return Integer.parseInt(arr[0]);
 	}
 	
+	public void pumpIntoMap(String[] arr){
+		//Add what we have into the list
+		for (String eachIndex : arr){
+			this.degreeWithTerm.put(getDegreeFromString(eachIndex), getCoeffFromString(eachIndex));
+		}
+		
+		for (int i = 0; i<=this.degree; i++){
+			if (this.degreeWithTerm.containsKey(i)){
+				//It has it
+				continue;
+			}
+			else{
+				this.degreeWithTerm.put(i, (float) 0);
+			}
+		}
+	}
+	
+	//http://stackoverflow.com/questions/1066589/iterate-through-a-hashmap
+	public void printMap(Map mp) {
+	    Iterator it = mp.entrySet().iterator();
+	    while (it.hasNext()) {
+	        Map.Entry pair = (Map.Entry)it.next();
+	        System.out.println(pair.getKey() + " = " + pair.getValue());
+	        it.remove(); // avoids a ConcurrentModificationException
+	    }
+	}
 
 }
