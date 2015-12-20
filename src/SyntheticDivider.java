@@ -3,6 +3,7 @@ public class SyntheticDivider {
 	private Polynomial poly;
 	private LinearFactor lf;
 	
+	
 	public SyntheticDivider(){
 		
 	}

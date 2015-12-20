@@ -9,7 +9,7 @@ public class Polynomial {
 	private Scanner scan = new Scanner(System.in);
 	
 	private HashMap<Integer,Float> degreeWithTerm = new HashMap<Integer,Float>();
-	private List<Float> polynomialCoefficientTerms;
+	private ArrayList<Float> polynomialCoefficientTerms = new ArrayList<Float>();
 	
 	public void setdegree(int deg){
 		this.degree = deg;
@@ -105,14 +105,18 @@ public class Polynomial {
 				this.degreeWithTerm.put(i, (float) 0);
 			}
 		}
+		pumpMapToList();
 	}
 	
 	//Takes the hasmap and puts it into a list
 	public void pumpMapToList(){
-		
+		for (int i = this.degree; i>=0; i--){
+			this.polynomialCoefficientTerms.add(this.degreeWithTerm.get(i));
+		}
+		//for (float i : this.polynomialCoefficientTerms) System.out.print(i);
 	}
 	
-	public List<Float> getCoeffs(){
+	public ArrayList<Float> getCoeffs(){
 		return this.polynomialCoefficientTerms;
 	}
 	
