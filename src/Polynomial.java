@@ -48,7 +48,7 @@ public class Polynomial {
 		//Set the degree
 		
 		pumpIntoMap(arr);
-		printMap(this.degreeWithTerm);
+//		printMap(this.degreeWithTerm);
 		//Add the data we have into the map
 
 		/*
