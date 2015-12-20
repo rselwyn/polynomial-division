@@ -26,9 +26,7 @@ public class SyntheticDivider {
 		return this.lf.getFactor();
 	}
 	
-	public ArrayList<Float> getCoeffList(){
-		return (ArrayList<Float>) null;
-	}
+	
 	
 	
 	

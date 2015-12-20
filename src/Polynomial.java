@@ -9,6 +9,7 @@ public class Polynomial {
 	private Scanner scan = new Scanner(System.in);
 	
 	private HashMap<Integer,Float> degreeWithTerm = new HashMap<Integer,Float>();
+	private List<Float> polynomialCoefficientTerms;
 	
 	public void setdegree(int deg){
 		this.degree = deg;
@@ -106,7 +107,20 @@ public class Polynomial {
 		}
 	}
 	
+	//Takes the hasmap and puts it into a list
+	public void pumpMapToList(){
+		
+	}
+	
+	public List<Float> getCoeffs(){
+		return this.polynomialCoefficientTerms;
+	}
+	
 	//http://stackoverflow.com/questions/1066589/iterate-through-a-hashmap
+	/*
+	 * @param mp:  The map
+	 * Prints out all the values in a map
+	 */
 	public void printMap(Map mp) {
 	    Iterator it = mp.entrySet().iterator();
 	    while (it.hasNext()) {
