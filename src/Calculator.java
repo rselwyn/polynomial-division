@@ -10,6 +10,7 @@ public class Calculator {
 		lf.getNewLinearFactor();
 		System.out.println(lf.getFactor());
 		poly.getNewPoly();
+		SyntheticDivider div = new SyntheticDivider(poly,lf);
 		
 	}
 

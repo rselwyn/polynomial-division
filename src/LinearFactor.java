@@ -23,10 +23,10 @@ public class LinearFactor {
 	
 	public void ParseFactor(String expr){
 		if (!cleanUp(expr)){
-			setFact(Integer.parseInt(expr.substring(1)));
+			setFact(-1 * Integer.parseInt(expr.substring(1)));
 		}
 		else{
-			setFact(Integer.parseInt(expr.substring(indexRet(expr))));
+			setFact(-1 * Integer.parseInt(expr.substring(indexRet(expr))));
 		}
 	}
 		
