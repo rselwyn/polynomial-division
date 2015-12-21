@@ -51,6 +51,8 @@ public class MainWin extends JFrame{
 	public void mainScreenPanelMake(){
 		top.add(new JLabel("Polynomial:"));
 		top.add(new JTextField(17));
+		middle.add(new JLabel("Linear Factor:"));
+		middle.add(new JTextField(15));
 		bottom.add(new JButton("Submit"));
 	}
 	public void startScreenPanelMake(){
