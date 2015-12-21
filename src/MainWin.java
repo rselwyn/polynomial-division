@@ -66,6 +66,9 @@ public class MainWin extends JFrame{
             {
                 //Execute when button is pressed
             	goCalculateAndInitiateNew(lf.getText(),poly.getText());
+            	removeMainPanels();
+            	showResultItems();
+            	fixPane();
             }
         });  
 		bottom.add(submit);
@@ -118,8 +121,37 @@ public class MainWin extends JFrame{
 	}
 	
 	public void makeResultPane(float f, String expr){
-		JLabel remainder1 = new JLabel("The remainder is  "+ f);
-		JLabel expressionOf = new JLabel(expr);
+		resultHeader.removeAll();
+		resultBottom.removeAll();
+		JLabel remainder1 = new JLabel(" with Remainder "+ f);
+		expr = expr.replaceAll("[^0-9 x \\^ . \\+ \\- ]","");
+
+		JLabel expressionOf = new JLabel("P(x)/q(x) = "+expr);
+		System.out.println(expr);
+
+		resultHeader.add(expressionOf);
+		resultHeader.add(remainder1);
+		JButton back = new JButton("Back");
+		back.addActionListener(new ActionListener() {
+			 
+            public void actionPerformed(ActionEvent e)
+            {
+                //Execute when button is pressed
+            	removeREsultItems();
+            	addMainPanels();
+            	fixPane();
+            }
+        });  
+		resultBottom.add(back);
+	
+	}
+	public void showResultItems(){
+		window.add(resultHeader);
+		window.add(resultBottom);
+	}
+	public void removeREsultItems(){
+		window.remove(resultHeader);
+		window.remove(resultBottom);
 	}
 	
 	public void goCalculateAndInitiateNew(String lf, String poly){
