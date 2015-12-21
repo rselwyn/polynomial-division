@@ -27,6 +27,10 @@ public class MainWin extends JFrame{
 	private JPanel middle = new JPanel();
 	private JPanel bottom = new JPanel();
 	
+	//Intro page:
+	private JPanel topIntro = new JPanel();
+	private JPanel bodyIntro = new JPanel();
+	
 	private final int HEIGHT = 300;
 	private final int WIDTH = 400;
 	public void startWin(){
@@ -37,18 +41,30 @@ public class MainWin extends JFrame{
 		window.setLayout(new FlowLayout());
 		
 	}
+	
 	public void mainScreenPanelMake(){
 		top.add(new JLabel("Polynomial:"));
 		top.add(new JTextField(17));
-		
-		
 		bottom.add(new JButton("Submit"));
+	}
+	//Perform all the fixing actions 
+	public void fixPane(){
+		window.revalidate();
+		window.repaint();
 	}
 	public void addMainPanels(){
 		window.add(top);
 		window.add(middle);
 		window.add(bottom);
-		
 	}
+	public void removeMainPanels(){
+		window.remove(top);
+		window.remove(middle);
+		window.remove(bottom);
+	}
+	
+	
+	
+	
 	
 }
