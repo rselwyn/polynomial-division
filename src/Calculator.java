@@ -6,7 +6,7 @@ import java.math.*;
 public class Calculator{
 	public static Scanner scan = new Scanner(System.in);
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		
 		MainWin mainWindow = new MainWin();
