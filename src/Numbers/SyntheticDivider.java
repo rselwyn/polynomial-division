@@ -1,3 +1,4 @@
+package Numbers;
 import java.util.*;
 public class SyntheticDivider {
 	//The polynomial
@@ -11,6 +12,7 @@ public class SyntheticDivider {
 	//The remainder when polynomial/lf
 	private int remainder;
 	
+	private String remainderPoly;
 	public SyntheticDivider(Polynomial p, LinearFactor l) {
 		setPoly(p);
 		setLF(l);
@@ -20,9 +22,13 @@ public class SyntheticDivider {
 		System.out.println("Remainder: "+this.remainder);
 		for (int i=this.degree; i>0; i--){
 			System.out.print(remainderTerms.get(this.degree-i)+"x^"+(i-1));
+			remainderPoly += (remainderTerms.get(this.degree-i)+"x^"+(i-1));
 		}
 	}
 	
+	public String getRP(){
+		return this.remainderPoly;
+	}
 	/*
 	 * @param Polynomial 
 	 */
@@ -47,6 +53,10 @@ public class SyntheticDivider {
 	//Set the remainder
 	public void setRemainder(float r){
 		this.remainder = (int) r;
+	}
+	
+	public float getRemainder(){
+		return this.remainder;
 	}
 	
 	

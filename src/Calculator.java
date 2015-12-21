@@ -1,6 +1,9 @@
 import java.util.*;
 
-import ui.*;
+import Numbers.LinearFactor;
+import Numbers.Polynomial;
+import Numbers.SyntheticDivider;
+
 
 import java.math.*;
 public class Calculator{
