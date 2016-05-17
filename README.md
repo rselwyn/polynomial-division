@@ -1,2 +1,3 @@
 # polynomial-division
-A polynomial divider.
+
+A polynomial dividing program that I wrote for fun!
